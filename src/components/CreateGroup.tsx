@@ -3,6 +3,8 @@ import { GroupContext } from "../context/GroupContext.tsx";
 import GroupeView from "./GroupeView.tsx";
 import '../styles/CreateGroup.scss'
 import Groupe from "../types/Groupe.ts";
+import { motion,AnimatePresence } from "motion/react"
+
 
 const CreateGroupe = () => {
     const context = useContext(GroupContext);
@@ -42,9 +44,16 @@ const CreateGroupe = () => {
                 <button onClick={handleAddGroup}>Ajouter Groupe</button>
             </div>
             <div className="name-list">
+                <AnimatePresence>
                 {newGroup.person.map(person => (
-                    <p key={person}>{person}</p>
+                    <motion.p key={person}
+                              initial={{ scale: 0 }}
+                              animate={{ scale: 1 }}
+                              exit={{ scale: 1.5,opacity: 0 }}
+                              transition={{ease:"backOut", duration:0.4}}
+                    >{person}</motion.p>
                 ))}
+                    </AnimatePresence>
             </div>
         </div>
     )
