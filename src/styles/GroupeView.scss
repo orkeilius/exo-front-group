@@ -9,7 +9,9 @@
         align-items: center;
         flex-wrap: wrap;
 
-        li {
+        li, .li {
+            position: relative;
+            display: block;
             margin: 10px;
             padding: 10px;
             background: #333;
@@ -17,6 +19,16 @@
             width: fit-content;
             text-align: center;
             color: #fff;
+        }
+        .li{
+            padding: 0;
+        }
+        .input {
+            padding: 10px;
+            border-radius: 5px;
+            background: inherit;
+            margin: 0;
+            max-width: 5em;
         }
     }
 
@@ -28,6 +40,24 @@
         width: 40px;
         background: #990000;
         border-radius: 20px; // Changement pour rendre le bouton rond
+        display: flex;
+        align-items: center;
+        justify-content: center; // Centrer l'icône
+
+        * {
+            width: 20px;
+            height: 20px;
+            color: #fff; // Assurez-vous que l'icône soit blanche pour être visible sur le fond rouge
+        }
+    }
+    .remove-name-button{
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        height: 10px;
+        max-width: 10px;
+        background: #990000;
+        border-radius: 10px; // Changement pour rendre le bouton rond
         display: flex;
         align-items: center;
         justify-content: center; // Centrer l'icône

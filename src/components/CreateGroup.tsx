@@ -6,10 +6,11 @@ import Groupe from "../types/Groupe.ts";
 import { motion,AnimatePresence } from "motion/react"
 
 
+
 const CreateGroupe = () => {
     const context = useContext(GroupContext);
     // @ts-ignore
-    const {groups, addGroup } = context;
+    const { groups, dispatch } = context;
 
     const [newGroup, setNewGroup] = useState(new Groupe('nouveau groupe', []));
     const [textInput, setTextInput] = useState('');
@@ -31,7 +32,7 @@ const CreateGroupe = () => {
     const handleAddGroup = () => {
         let newnewgroup = newGroup;
         newnewgroup.name = "Group " + (groups.length + 1);
-        addGroup(newnewgroup);
+        dispatch({ action: "upsert", value: newnewgroup });
         handleRecommencer();
     }
 
